@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07090f">
+  <title>amir01</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #07090f;
+      --cyan: #54f2d2;
+      --violet: #9b7bff;
+      --text: #f2f5fb;
+    }
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 28px;
+      background:
+        radial-gradient(ellipse at 18% 18%, rgba(84,242,210,.12), transparent 38%),
+        radial-gradient(ellipse at 82% 78%, rgba(155,123,255,.14), transparent 42%),
+        var(--bg);
+      color: var(--text);
+      font-family: Tahoma, "Segoe UI", sans-serif;
+    }
+    .grid {
+      position: fixed; inset: 0; pointer-events: none; opacity: .19;
+      background-image: linear-gradient(rgba(150,170,200,.10) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(150,170,200,.10) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(ellipse at center, black 10%, transparent 78%);
+    }
+    .glow {
+      position: fixed; width: 340px; height: 340px; border-radius: 50%;
+      filter: blur(90px); opacity: .16; pointer-events: none;
+      background: var(--cyan); top: -180px; left: 12%;
+    }
+    .glow.two { background: var(--violet); top: auto; left: auto; right: -170px; bottom: -190px; }
+    main {
+      position: relative;
+      width: min(900px, 100%);
+      min-height: 330px;
+      display: grid;
+      place-items: center;
+      padding: clamp(32px, 7vw, 76px);
+      border: 1px solid rgba(150, 170, 200, .18);
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(19,24,37,.88), rgba(10,13,23,.78));
+      box-shadow: 0 30px 100px rgba(0,0,0,.55), inset 0 1px rgba(255,255,255,.045);
+      backdrop-filter: blur(18px);
+      text-align: center;
+      isolation: isolate;
+    }
+    main::before {
+      content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px;
+      background: linear-gradient(125deg, rgba(84,242,210,.7), transparent 38%, rgba(155,123,255,.65));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      pointer-events: none; opacity: .72;
+    }
+    .corner {
+      position: absolute; top: 22px; left: 25px;
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--cyan); box-shadow: 0 0 18px var(--cyan);
+    }
+    .mark {
+      position: absolute; top: 22px; right: 25px;
+      color: rgba(180,195,220,.42); font: 12px/1.2 monospace;
+      letter-spacing: .18em; direction: ltr;
+    }
+    h1 {
+      max-width: 760px; margin: 0;
+      font-size: clamp(25px, 4.4vw, 48px);
+      line-height: 1.9; font-weight: 700; letter-spacing: -.035em;
+      text-wrap: balance;
+      text-shadow: 0 0 34px rgba(84,242,210,.12);
+    }
+    .accent {
+      color: var(--cyan);
+      text-shadow: 0 0 24px rgba(84,242,210,.34);
+      direction: ltr; unicode-bidi: isolate; display: inline-block;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      font-weight: 700;
+    }
+    .line {
+      position: absolute; bottom: 0; left: 15%; right: 15%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(84,242,210,.7), rgba(155,123,255,.7), transparent);
+      opacity: .7;
+    }
+    @media (max-width: 520px) {
+      main { min-height: 300px; border-radius: 20px; }
+      .mark { font-size: 10px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      main { animation: rise .9s cubic-bezier(.2,.75,.25,1) both; }
+      @keyframes rise { from { opacity: 0; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: none; } }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="glow two" aria-hidden="true"></div>
+  <main>
+    <span class="corner" aria-hidden="true"></span>
+    <span class="mark" aria-hidden="true">AMIR01 / DEV</span>
+    <h1>برای سفارش کار با آیدی تلگرام <span class="accent">Amir01_site</span> در ارتباط باشید</h1>
+    <span class="line" aria-hidden="true"></span>
+  </main>
+</body>
+</html>
